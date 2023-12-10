@@ -36,6 +36,7 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self.bullets.update()
+            self._update_aliens()
             self._update_bullets()
             self._update_screen()
             self.clock.tick(60)
@@ -79,6 +80,10 @@ class AlienInvasion:
         """Update position of bullets and get rid of old bullets."""
         # Update bullet position.
         self.bullets.update()
+    
+    def _update_aliens(self):
+        """Update the position of all aliens in the fleet."""
+        self.aliens.update()
 
         # Get rid of bullets that have disappeared.
         for bullet in self.bullets.copy():
